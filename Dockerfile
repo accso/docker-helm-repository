@@ -6,8 +6,8 @@ RUN apt-get update && \
     cd /tmp && \
     tar zxvf /tmp/helm.tar.gz && \
     rm /tmp/helm.tar.gz && \
-    mv /tmp/helm*/helm /bin && \
-    rm -rf /tmp/helm* && \
+    mv /tmp/linux-amd64/helm /bin && \
+    rm -rf /tmp/linux-amd64 && \
     mkdir /charts && \
     apt-get purge curl && \
     apt-get autoremove && \
