@@ -12,6 +12,6 @@ RUN apt-get update && \
     apt-get purge -y curl && \
     apt-get autoremove -y && \
     apt-get clean
-ENTRYPOINT /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
 EXPOSE 8879
 VOLUME /charts
