@@ -9,8 +9,8 @@ RUN apt-get update && \
     mv /tmp/linux-amd64/helm /bin && \
     rm -rf /tmp/linux-amd64 && \
     mkdir /charts && \
-    apt-get purge curl && \
-    apt-get autoremove && \
+    apt-get purge -y curl && \
+    apt-get autoremove -y && \
     apt-get clean
 ENTRYPOINT /entrypoint.sh
 EXPOSE 8879
