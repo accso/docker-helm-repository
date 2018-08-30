@@ -3,11 +3,14 @@ COPY assets/entrypoint.sh /
 RUN apt-get update && \
     apt-get install  -y curl && \
     curl -o /tmp/helm.tar.gz https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz && \
-    cd /run && \
+    cd /tmp && \
     tar zxvf /tmp/helm.tar.gz && \
-    cp /tmp/helm*/helm /bin && \
+    rm /tmp/helm.tar.gz && \
+    mv /tmp/helm*/helm /bin && \
+    rm -rf /tmp/helm* && \
     mkdir /charts && \
-    apt-get remove curl && \
+    apt-get purge curl && \
+    apt-get autoremove && \
     apt-get clean
 ENTRYPOINT /entrypoint.sh
 EXPOSE 8879
